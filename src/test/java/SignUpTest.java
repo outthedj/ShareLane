@@ -1,3 +1,4 @@
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,6 +20,8 @@ public class SignUpTest {
 
     @Test
     public void sendFiveDigitsToZipCodeFieldTest() {
+        Faker faker = new Faker();
+        String zipCode= faker.address().zipCodeByState("CA");
         //Open Zip code page
         driver.get("https://www.sharelane.com/cgi-bin/register.py");
         //Input 5 digits zip
